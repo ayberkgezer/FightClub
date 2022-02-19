@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -39,6 +39,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>FightClub.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -101,6 +102,48 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="group.Designer.vb">
+      <DependentUpon>group.vb</DependentUpon>
+    </Compile>
+    <Compile Include="group.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="groupadd.Designer.vb">
+      <DependentUpon>groupadd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="groupadd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="payment.Designer.vb">
+      <DependentUpon>payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paymenttype.Designer.vb">
+      <DependentUpon>paymenttype.vb</DependentUpon>
+    </Compile>
+    <Compile Include="paymenttype.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="traineradd.Designer.vb">
+      <DependentUpon>traineradd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="traineradd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="trainertrash.Designer.vb">
+      <DependentUpon>trainertrash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="trainertrash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="trainerlist.Designer.vb">
+      <DependentUpon>trainerlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="trainerlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="members.Designer.vb">
       <DependentUpon>members.vb</DependentUpon>
     </Compile>
@@ -120,6 +163,24 @@
     </Compile>
     <Compile Include="gymDataSet.vb">
       <DependentUpon>gymDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="membersadd.Designer.vb">
+      <DependentUpon>membersadd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="membersadd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="memberslist.Designer.vb">
+      <DependentUpon>memberslist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="memberslist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="memberstrash.Designer.vb">
+      <DependentUpon>memberstrash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="memberstrash.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -148,11 +209,26 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="group.resx">
+      <DependentUpon>group.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="groupadd.resx">
+      <DependentUpon>groupadd.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="members.resx">
       <DependentUpon>members.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainpage.resx">
       <DependentUpon>mainpage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="membersadd.resx">
+      <DependentUpon>membersadd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="memberslist.resx">
+      <DependentUpon>memberslist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="memberstrash.resx">
+      <DependentUpon>memberstrash.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -160,8 +236,23 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="payment.resx">
+      <DependentUpon>payment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paymenttype.resx">
+      <DependentUpon>paymenttype.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="trainer.resx">
       <DependentUpon>trainer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="traineradd.resx">
+      <DependentUpon>traineradd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="trainerlist.resx">
+      <DependentUpon>trainerlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="trainertrash.resx">
+      <DependentUpon>trainertrash.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +286,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>gym.mdf</DependentUpon>
     </Content>
+    <None Include="resources\magnifying-glass.png" />
     <None Include="packages.config" />
     <None Include="resources\log-in.png" />
     <None Include="resources\import.png" />

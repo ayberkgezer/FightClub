@@ -3611,6 +3611,8 @@ Partial Public Class gymDataSet
         
         Private columnpaymenttype_name As Global.System.Data.DataColumn
         
+        Private columnpaymentmoney As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -3663,6 +3665,14 @@ Partial Public Class gymDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property paymentmoneyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpaymentmoney
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3699,9 +3709,9 @@ Partial Public Class gymDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddpaymenttypeRow(ByVal paymenttype_id As Integer, ByVal paymenttype_name As String) As paymenttypeRow
+        Public Overloads Function AddpaymenttypeRow(ByVal paymenttype_id As Integer, ByVal paymenttype_name As String, ByVal paymentmoney As Decimal) As paymenttypeRow
             Dim rowpaymenttypeRow As paymenttypeRow = CType(Me.NewRow,paymenttypeRow)
-            Dim columnValuesArray() As Object = New Object() {paymenttype_id, paymenttype_name}
+            Dim columnValuesArray() As Object = New Object() {paymenttype_id, paymenttype_name, paymentmoney}
             rowpaymenttypeRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowpaymenttypeRow)
             Return rowpaymenttypeRow
@@ -3732,6 +3742,7 @@ Partial Public Class gymDataSet
         Friend Sub InitVars()
             Me.columnpaymenttype_id = MyBase.Columns("paymenttype_id")
             Me.columnpaymenttype_name = MyBase.Columns("paymenttype_name")
+            Me.columnpaymentmoney = MyBase.Columns("paymentmoney")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3741,6 +3752,8 @@ Partial Public Class gymDataSet
             MyBase.Columns.Add(Me.columnpaymenttype_id)
             Me.columnpaymenttype_name = New Global.System.Data.DataColumn("paymenttype_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpaymenttype_name)
+            Me.columnpaymentmoney = New Global.System.Data.DataColumn("paymentmoney", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpaymentmoney)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnpaymenttype_id}, true))
             Me.columnpaymenttype_id.AllowDBNull = false
             Me.columnpaymenttype_id.Unique = true
@@ -3899,8 +3912,6 @@ Partial Public Class gymDataSet
         
         Private columntrainer_birthday As Global.System.Data.DataColumn
         
-        Private columntrainer_salary As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -4001,14 +4012,6 @@ Partial Public Class gymDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property trainer_salaryColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntrainer_salary
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4045,9 +4048,9 @@ Partial Public Class gymDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddtrainerRow(ByVal trainer_name As String, ByVal trainer_surname As String, ByVal trainer_tel As Decimal, ByVal traniner_address As String, ByVal trainer_gender As String, ByVal trainer_date As Date, ByVal trainer_birthday As Date, ByVal trainer_salary As Decimal) As trainerRow
+        Public Overloads Function AddtrainerRow(ByVal trainer_name As String, ByVal trainer_surname As String, ByVal trainer_tel As Decimal, ByVal traniner_address As String, ByVal trainer_gender As String, ByVal trainer_date As Date, ByVal trainer_birthday As Date) As trainerRow
             Dim rowtrainerRow As trainerRow = CType(Me.NewRow,trainerRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, trainer_name, trainer_surname, trainer_tel, traniner_address, trainer_gender, trainer_date, trainer_birthday, trainer_salary}
+            Dim columnValuesArray() As Object = New Object() {Nothing, trainer_name, trainer_surname, trainer_tel, traniner_address, trainer_gender, trainer_date, trainer_birthday}
             rowtrainerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtrainerRow)
             Return rowtrainerRow
@@ -4084,7 +4087,6 @@ Partial Public Class gymDataSet
             Me.columntrainer_gender = MyBase.Columns("trainer_gender")
             Me.columntrainer_date = MyBase.Columns("trainer_date")
             Me.columntrainer_birthday = MyBase.Columns("trainer_birthday")
-            Me.columntrainer_salary = MyBase.Columns("trainer_salary")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4106,8 +4108,6 @@ Partial Public Class gymDataSet
             MyBase.Columns.Add(Me.columntrainer_date)
             Me.columntrainer_birthday = New Global.System.Data.DataColumn("trainer_birthday", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntrainer_birthday)
-            Me.columntrainer_salary = New Global.System.Data.DataColumn("trainer_salary", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntrainer_salary)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columntrainer_id}, true))
             Me.columntrainer_id.AutoIncrement = true
             Me.columntrainer_id.AutoIncrementSeed = -1
@@ -5139,6 +5139,33 @@ Partial Public Class gymDataSet
                 Me(Me.tablepaymenttype.paymenttype_nameColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property paymentmoney() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablepaymenttype.paymentmoneyColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("'paymenttype' tablosundaki 'paymentmoney' sütunun değeri DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepaymenttype.paymentmoneyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IspaymentmoneyNull() As Boolean
+            Return Me.IsNull(Me.tablepaymenttype.paymentmoneyColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetpaymentmoneyNull()
+            Me(Me.tablepaymenttype.paymentmoneyColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -5243,33 +5270,6 @@ Partial Public Class gymDataSet
                 Me(Me.tabletrainer.trainer_birthdayColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property trainer_salary() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tabletrainer.trainer_salaryColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("'trainer' tablosundaki 'trainer_salary' sütunun değeri DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletrainer.trainer_salaryColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Istrainer_salaryNull() As Boolean
-            Return Me.IsNull(Me.tabletrainer.trainer_salaryColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Settrainer_salaryNull()
-            Me(Me.tabletrainer.trainer_salaryColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -8870,12 +8870,17 @@ Namespace gymDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT member_id, member_name, member_surname, member_tel, member_address, member"& _ 
                 "_gender, member_date, member_birthday FROM dbo.member"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT member_id, member_name, member_surname, member_tel, member_address, member"& _ 
+                "_gender, member_date, member_birthday FROM dbo.member"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8900,6 +8905,19 @@ Namespace gymDataSetTableAdapters
             Dim dataTable As gymDataSet.memberDataTable = New gymDataSet.memberDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As gymDataSet.memberDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9239,33 +9257,42 @@ Namespace gymDataSetTableAdapters
             tableMapping.DataSetTable = "paymenttype"
             tableMapping.ColumnMappings.Add("paymenttype_id", "paymenttype_id")
             tableMapping.ColumnMappings.Add("paymenttype_name", "paymenttype_name")
+            tableMapping.ColumnMappings.Add("paymentmoney", "paymentmoney")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[paymenttype] WHERE (([paymenttype_id] = @Original_paymenttype_"& _ 
-                "id) AND ([paymenttype_name] = @Original_paymenttype_name))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [paymenttype] WHERE (([paymenttype_id] = @Original_paymenttype_id) AN"& _ 
+                "D ([paymenttype_name] = @Original_paymenttype_name) AND ((@IsNull_paymentmoney ="& _ 
+                " 1 AND [paymentmoney] IS NULL) OR ([paymentmoney] = @Original_paymentmoney)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_paymenttype_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_paymenttype_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_paymentmoney", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymentmoney", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_paymentmoney", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymentmoney", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[paymenttype] ([paymenttype_id], [paymenttype_name]) VALUES (@p"& _ 
-                "aymenttype_id, @paymenttype_name);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT paymenttype_id, paymenttype_name FROM"& _ 
-                " paymenttype WHERE (paymenttype_id = @paymenttype_id)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [paymenttype] ([paymenttype_name], [paymentmoney]) VALUES (@paymentty"& _ 
+                "pe_name, @paymentmoney);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT paymenttype_id, paymenttype_name, paymentmoney "& _ 
+                "FROM paymenttype WHERE (paymenttype_id = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymenttype_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymenttype_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymentmoney", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymentmoney", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[paymenttype] SET [paymenttype_id] = @paymenttype_id, [paymenttype_n"& _ 
-                "ame] = @paymenttype_name WHERE (([paymenttype_id] = @Original_paymenttype_id) AN"& _ 
-                "D ([paymenttype_name] = @Original_paymenttype_name));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT paymenttype_id, pa"& _ 
-                "ymenttype_name FROM paymenttype WHERE (paymenttype_id = @paymenttype_id)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [paymenttype] SET [paymenttype_name] = @paymenttype_name, [paymentmoney] ="& _ 
+                " @paymentmoney WHERE (([paymenttype_id] = @Original_paymenttype_id) AND ([paymen"& _ 
+                "ttype_name] = @Original_paymenttype_name) AND ((@IsNull_paymentmoney = 1 AND [pa"& _ 
+                "ymentmoney] IS NULL) OR ([paymentmoney] = @Original_paymentmoney)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT pay"& _ 
+                "menttype_id, paymenttype_name, paymentmoney FROM paymenttype WHERE (paymenttype_"& _ 
+                "id = @paymenttype_id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymenttype_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymenttype_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymentmoney", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymentmoney", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_paymenttype_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_paymenttype_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_paymentmoney", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymentmoney", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_paymentmoney", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "paymentmoney", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paymenttype_id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "paymenttype_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9281,7 +9308,7 @@ Namespace gymDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT paymenttype_id, paymenttype_name FROM dbo.paymenttype"
+            Me._commandCollection(0).CommandText = "SELECT paymenttype_id, paymenttype_name, paymentmoney FROM paymenttype"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -9341,12 +9368,19 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_paymenttype_id As Integer, ByVal Original_paymenttype_name As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_paymenttype_id As Integer, ByVal Original_paymenttype_name As String, ByVal Original_paymentmoney As Global.System.Nullable(Of Decimal)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_paymenttype_id,Integer)
             If (Original_paymenttype_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_paymenttype_name")
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_paymenttype_name,String)
+            End If
+            If (Original_paymentmoney.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_paymentmoney.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9367,12 +9401,16 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal paymenttype_id As Integer, ByVal paymenttype_name As String) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(paymenttype_id,Integer)
+        Public Overloads Overridable Function Insert(ByVal paymenttype_name As String, ByVal paymentmoney As Global.System.Nullable(Of Decimal)) As Integer
             If (paymenttype_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("paymenttype_name")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(paymenttype_name,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(paymenttype_name,String)
+            End If
+            If (paymentmoney.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(paymentmoney.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9393,12 +9431,16 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal paymenttype_id As Integer, ByVal paymenttype_name As String, ByVal Original_paymenttype_id As Integer, ByVal Original_paymenttype_name As String) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(paymenttype_id,Integer)
+        Public Overloads Overridable Function Update(ByVal paymenttype_name As String, ByVal paymentmoney As Global.System.Nullable(Of Decimal), ByVal Original_paymenttype_id As Integer, ByVal Original_paymenttype_name As String, ByVal Original_paymentmoney As Global.System.Nullable(Of Decimal), ByVal paymenttype_id As Integer) As Integer
             If (paymenttype_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("paymenttype_name")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(paymenttype_name,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(paymenttype_name,String)
+            End If
+            If (paymentmoney.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(paymentmoney.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_paymenttype_id,Integer)
             If (Original_paymenttype_name Is Nothing) Then
@@ -9406,6 +9448,14 @@ Namespace gymDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_paymenttype_name,String)
             End If
+            If (Original_paymentmoney.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_paymentmoney.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(paymenttype_id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9425,8 +9475,8 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal paymenttype_name As String, ByVal Original_paymenttype_id As Integer, ByVal Original_paymenttype_name As String) As Integer
-            Return Me.Update(Original_paymenttype_id, paymenttype_name, Original_paymenttype_id, Original_paymenttype_name)
+        Public Overloads Overridable Function Update(ByVal paymenttype_name As String, ByVal paymentmoney As Global.System.Nullable(Of Decimal), ByVal Original_paymenttype_id As Integer, ByVal Original_paymenttype_name As String, ByVal Original_paymentmoney As Global.System.Nullable(Of Decimal)) As Integer
+            Return Me.Update(paymenttype_name, paymentmoney, Original_paymenttype_id, Original_paymenttype_name, Original_paymentmoney, Original_paymenttype_id)
         End Function
     End Class
     
@@ -9565,7 +9615,6 @@ Namespace gymDataSetTableAdapters
             tableMapping.ColumnMappings.Add("trainer_gender", "trainer_gender")
             tableMapping.ColumnMappings.Add("trainer_date", "trainer_date")
             tableMapping.ColumnMappings.Add("trainer_birthday", "trainer_birthday")
-            tableMapping.ColumnMappings.Add("trainer_salary", "trainer_salary")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -9574,8 +9623,7 @@ Namespace gymDataSetTableAdapters
                 "_surname) AND ([trainer_tel] = @Original_trainer_tel) AND ([traniner_address] = "& _ 
                 "@Original_traniner_address) AND ([trainer_gender] = @Original_trainer_gender) AN"& _ 
                 "D ([trainer_date] = @Original_trainer_date) AND ([trainer_birthday] = @Original_"& _ 
-                "trainer_birthday) AND ((@IsNull_trainer_salary = 1 AND [trainer_salary] IS NULL)"& _ 
-                " OR ([trainer_salary] = @Original_trainer_salary)))"
+                "trainer_birthday))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -9585,17 +9633,14 @@ Namespace gymDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_gender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_birthday", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_birthday", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_trainer_salary", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_salary", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_salary", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_salary", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[trainer] ([trainer_name], [trainer_surname], [trainer_tel], [t"& _ 
-                "raniner_address], [trainer_gender], [trainer_date], [trainer_birthday], [trainer"& _ 
-                "_salary]) VALUES (@trainer_name, @trainer_surname, @trainer_tel, @traniner_addre"& _ 
-                "ss, @trainer_gender, @trainer_date, @trainer_birthday, @trainer_salary);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
-                " trainer_id, trainer_name, trainer_surname, trainer_tel, traniner_address, train"& _ 
-                "er_gender, trainer_date, trainer_birthday, trainer_salary FROM trainer WHERE (tr"& _ 
-                "ainer_id = SCOPE_IDENTITY())"
+                "raniner_address], [trainer_gender], [trainer_date], [trainer_birthday]) VALUES ("& _ 
+                "@trainer_name, @trainer_surname, @trainer_tel, @traniner_address, @trainer_gende"& _ 
+                "r, @trainer_date, @trainer_birthday);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT trainer_id, trainer_name, trainer_"& _ 
+                "surname, trainer_tel, traniner_address, trainer_gender, trainer_date, trainer_bi"& _ 
+                "rthday FROM trainer WHERE (trainer_id = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_surname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_surname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9604,22 +9649,19 @@ Namespace gymDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_gender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_birthday", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_birthday", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_salary", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_salary", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[trainer] SET [trainer_name] = @trainer_name, [trainer_surname] = @t"& _ 
                 "rainer_surname, [trainer_tel] = @trainer_tel, [traniner_address] = @traniner_add"& _ 
                 "ress, [trainer_gender] = @trainer_gender, [trainer_date] = @trainer_date, [train"& _ 
-                "er_birthday] = @trainer_birthday, [trainer_salary] = @trainer_salary WHERE (([tr"& _ 
-                "ainer_id] = @Original_trainer_id) AND ([trainer_name] = @Original_trainer_name) "& _ 
-                "AND ([trainer_surname] = @Original_trainer_surname) AND ([trainer_tel] = @Origin"& _ 
-                "al_trainer_tel) AND ([traniner_address] = @Original_traniner_address) AND ([trai"& _ 
-                "ner_gender] = @Original_trainer_gender) AND ([trainer_date] = @Original_trainer_"& _ 
-                "date) AND ([trainer_birthday] = @Original_trainer_birthday) AND ((@IsNull_traine"& _ 
-                "r_salary = 1 AND [trainer_salary] IS NULL) OR ([trainer_salary] = @Original_trai"& _ 
-                "ner_salary)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT trainer_id, trainer_name, trainer_surname, trainer_tel, t"& _ 
-                "raniner_address, trainer_gender, trainer_date, trainer_birthday, trainer_salary "& _ 
-                "FROM trainer WHERE (trainer_id = @trainer_id)"
+                "er_birthday] = @trainer_birthday WHERE (([trainer_id] = @Original_trainer_id) AN"& _ 
+                "D ([trainer_name] = @Original_trainer_name) AND ([trainer_surname] = @Original_t"& _ 
+                "rainer_surname) AND ([trainer_tel] = @Original_trainer_tel) AND ([traniner_addre"& _ 
+                "ss] = @Original_traniner_address) AND ([trainer_gender] = @Original_trainer_gend"& _ 
+                "er) AND ([trainer_date] = @Original_trainer_date) AND ([trainer_birthday] = @Ori"& _ 
+                "ginal_trainer_birthday));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT trainer_id, trainer_name, trainer_surname, tra"& _ 
+                "iner_tel, traniner_address, trainer_gender, trainer_date, trainer_birthday FROM "& _ 
+                "trainer WHERE (trainer_id = @trainer_id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_surname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_surname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9628,7 +9670,6 @@ Namespace gymDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_gender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_birthday", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_birthday", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_salary", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_salary", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_surname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_surname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -9637,8 +9678,6 @@ Namespace gymDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_gender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_birthday", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_birthday", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_trainer_salary", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_salary", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_trainer_salary", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_salary", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@trainer_id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "trainer_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -9656,7 +9695,7 @@ Namespace gymDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT trainer_id, trainer_name, trainer_surname, trainer_tel, traniner_address, "& _ 
-                "trainer_gender, trainer_date, trainer_birthday, trainer_salary FROM dbo.trainer"
+                "trainer_gender, trainer_date, trainer_birthday FROM dbo.trainer"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -9716,7 +9755,7 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_trainer_id As Integer, ByVal Original_trainer_name As String, ByVal Original_trainer_surname As String, ByVal Original_trainer_tel As Decimal, ByVal Original_traniner_address As String, ByVal Original_trainer_gender As String, ByVal Original_trainer_date As Date, ByVal Original_trainer_birthday As Date, ByVal Original_trainer_salary As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_trainer_id As Integer, ByVal Original_trainer_name As String, ByVal Original_trainer_surname As String, ByVal Original_trainer_tel As Decimal, ByVal Original_traniner_address As String, ByVal Original_trainer_gender As String, ByVal Original_trainer_date As Date, ByVal Original_trainer_birthday As Date) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_trainer_id,Integer)
             If (Original_trainer_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_trainer_name")
@@ -9741,13 +9780,6 @@ Namespace gymDataSetTableAdapters
             End If
             Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_trainer_date,Date)
             Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_trainer_birthday,Date)
-            If (Original_trainer_salary.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_trainer_salary.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9767,7 +9799,7 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal trainer_name As String, ByVal trainer_surname As String, ByVal trainer_tel As Decimal, ByVal traniner_address As String, ByVal trainer_gender As String, ByVal trainer_date As Date, ByVal trainer_birthday As Date, ByVal trainer_salary As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Insert(ByVal trainer_name As String, ByVal trainer_surname As String, ByVal trainer_tel As Decimal, ByVal traniner_address As String, ByVal trainer_gender As String, ByVal trainer_date As Date, ByVal trainer_birthday As Date) As Integer
             If (trainer_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("trainer_name")
             Else
@@ -9791,11 +9823,6 @@ Namespace gymDataSetTableAdapters
             End If
             Me.Adapter.InsertCommand.Parameters(5).Value = CType(trainer_date,Date)
             Me.Adapter.InsertCommand.Parameters(6).Value = CType(trainer_birthday,Date)
-            If (trainer_salary.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(trainer_salary.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9823,7 +9850,6 @@ Namespace gymDataSetTableAdapters
                     ByVal trainer_gender As String,  _
                     ByVal trainer_date As Date,  _
                     ByVal trainer_birthday As Date,  _
-                    ByVal trainer_salary As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_trainer_id As Integer,  _
                     ByVal Original_trainer_name As String,  _
                     ByVal Original_trainer_surname As String,  _
@@ -9832,7 +9858,6 @@ Namespace gymDataSetTableAdapters
                     ByVal Original_trainer_gender As String,  _
                     ByVal Original_trainer_date As Date,  _
                     ByVal Original_trainer_birthday As Date,  _
-                    ByVal Original_trainer_salary As Global.System.Nullable(Of Decimal),  _
                     ByVal trainer_id As Integer) As Integer
             If (trainer_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("trainer_name")
@@ -9857,43 +9882,31 @@ Namespace gymDataSetTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(trainer_date,Date)
             Me.Adapter.UpdateCommand.Parameters(6).Value = CType(trainer_birthday,Date)
-            If (trainer_salary.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(trainer_salary.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_trainer_id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_trainer_id,Integer)
             If (Original_trainer_name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_trainer_name")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_trainer_name,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_trainer_name,String)
             End If
             If (Original_trainer_surname Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_trainer_surname")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_trainer_surname,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_trainer_surname,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_trainer_tel,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_trainer_tel,Decimal)
             If (Original_traniner_address Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_traniner_address")
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_traniner_address,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_traniner_address,String)
             End If
             If (Original_trainer_gender Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_trainer_gender")
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_trainer_gender,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_trainer_gender,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_trainer_date,Date)
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_trainer_birthday,Date)
-            If (Original_trainer_salary.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_trainer_salary.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(trainer_id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_trainer_date,Date)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_trainer_birthday,Date)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(trainer_id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9913,25 +9926,8 @@ Namespace gymDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal trainer_name As String,  _
-                    ByVal trainer_surname As String,  _
-                    ByVal trainer_tel As Decimal,  _
-                    ByVal traniner_address As String,  _
-                    ByVal trainer_gender As String,  _
-                    ByVal trainer_date As Date,  _
-                    ByVal trainer_birthday As Date,  _
-                    ByVal trainer_salary As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_trainer_id As Integer,  _
-                    ByVal Original_trainer_name As String,  _
-                    ByVal Original_trainer_surname As String,  _
-                    ByVal Original_trainer_tel As Decimal,  _
-                    ByVal Original_traniner_address As String,  _
-                    ByVal Original_trainer_gender As String,  _
-                    ByVal Original_trainer_date As Date,  _
-                    ByVal Original_trainer_birthday As Date,  _
-                    ByVal Original_trainer_salary As Global.System.Nullable(Of Decimal)) As Integer
-            Return Me.Update(trainer_name, trainer_surname, trainer_tel, traniner_address, trainer_gender, trainer_date, trainer_birthday, trainer_salary, Original_trainer_id, Original_trainer_name, Original_trainer_surname, Original_trainer_tel, Original_traniner_address, Original_trainer_gender, Original_trainer_date, Original_trainer_birthday, Original_trainer_salary, Original_trainer_id)
+        Public Overloads Overridable Function Update(ByVal trainer_name As String, ByVal trainer_surname As String, ByVal trainer_tel As Decimal, ByVal traniner_address As String, ByVal trainer_gender As String, ByVal trainer_date As Date, ByVal trainer_birthday As Date, ByVal Original_trainer_id As Integer, ByVal Original_trainer_name As String, ByVal Original_trainer_surname As String, ByVal Original_trainer_tel As Decimal, ByVal Original_traniner_address As String, ByVal Original_trainer_gender As String, ByVal Original_trainer_date As Date, ByVal Original_trainer_birthday As Date) As Integer
+            Return Me.Update(trainer_name, trainer_surname, trainer_tel, traniner_address, trainer_gender, trainer_date, trainer_birthday, Original_trainer_id, Original_trainer_name, Original_trainer_surname, Original_trainer_tel, Original_traniner_address, Original_trainer_gender, Original_trainer_date, Original_trainer_birthday, Original_trainer_id)
         End Function
     End Class
     

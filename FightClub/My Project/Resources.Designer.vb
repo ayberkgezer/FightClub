@@ -83,6 +83,16 @@ Namespace My.Resources
         '''<summary>
         '''  System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         '''</summary>
+        Friend ReadOnly Property magnifying_glass() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("magnifying-glass", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        '''</summary>
         Friend ReadOnly Property main() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("main", resourceCulture)
